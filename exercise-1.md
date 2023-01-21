@@ -8,6 +8,8 @@
 
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/XhuX9_fkPuY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+Even after lots of wheel trim calibration, we see that the Duckiebot still does not travel in a perfectly straight line. This is because in the real world, many of assumptions do not hold, and there are many variables that affect the drift besides trim. For example, the wheels aren't point contacts, there is friction, uneven surfaces. However, the Duckiebot drifts by less than 10 cm in a 2 m run, which the Duckumentation states is sufficient for Duckietown.
+
 ### Dashboard
 
 ![Dashboard Speed - Linear](images/dashboard_linear.png)
@@ -16,6 +18,11 @@
 ### Lane Following Demo
 
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/Fs1bxWm-WQ0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+The lane following demo worked pretty well after re-calibration. In my first
+attempt, it would constantly drive on the white lines, suggesting that
+good camera and wheel calibration is important for good lane following
+performance.
 
 ## Write Up
 
@@ -68,7 +75,7 @@ in the first place, I used ssh to access the lab machine which was able to `ping
 
 #### **Color Detector**
 
-I found that the [color detector exercise](https://docs.duckietown.org/daffy/duckietown-robotics-development/out/creating_docker_containers.html#sub:autoid-8c0b6f84-4) in the duckmentation is outdated. I discovered that the `gst_pipeline` string in function template provided for Duckiebot MOOC Founder’s Edition is missing the `{}` necessary for format strings to work properly. However, even after putting the `{}` back it did not work.
+I found that the [color detector exercise](https://docs.duckietown.org/daffy/duckietown-robotics-development/out/creating_docker_containers.html#sub:autoid-8c0b6f84-4) in the Duckumentation is outdated. I discovered that the `gst_pipeline` string in function template provided for Duckiebot MOOC Founder’s Edition is missing the `{}` necessary for format strings to work properly. However, even after putting the `{}` back it did not work.
 
 I spent a considerable amount of time looking into workarounds. I looked into
 the [camera driver source code](https://github.com/duckietown/dt-duckiebot-interface/blob/daffy/packages/camera_driver/src/jetson_nano_camera_node.py), I tried
@@ -79,7 +86,7 @@ outputted that `nvarguscamerasrc ! queue ! nvjpegenc ! queue ! appsink`
 was a valid GStreamer pipeline. However, when I used the same pipeline in OpenCV Python
 it still did not work.
 
-The duckmentation notes that if another process is using the camera, your code will not work, to eliminate this as a possibility, I used Portainer
+The Duckumentation notes that if another process is using the camera, your code will not work, to eliminate this as a possibility, I used Portainer
 to stop all the containers except `colordetector` and `portainer`.
 The code still did not work. I also tried running the `colordetector`
 container in a way more similar to how the `dt-duckiebot-interface` was started,
