@@ -6,7 +6,7 @@
 
 ### Straight Line Demo
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/XhuX9_fkPuY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/XhuX9_fkPuY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Dashboard
 
@@ -15,7 +15,7 @@
 
 ### Lane Following Demo
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Fs1bxWm-WQ0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/Fs1bxWm-WQ0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Write Up
 
@@ -24,16 +24,12 @@
 * A hello from Duckiebot Docker container.
 * A color detector Docker container.
 
-Code repository: [steventango/cmput-412-labs](https://github.com/steventango/cmput-412-labs/).
-
-[Exercise 1 implementations](https://github.com/steventango/cmput-412-labs/tree/main/exercise-1).
+[Exercise 1 Code Implementation](https://github.com/steventango/cmput-412-labs/tree/main/exercise-1)
 
 ### Learned
 
-* I learned about the complexities of Duckiebot networking, including how to ssh into Duckiebot with `ssh duckie@csc22902.local`, and most importantly how to run Docker
-commands on a Duckiebot `docker -H csc22902.local ...`.
-
-* I also learned to be ready to debug what seemingly worked yesterday. With so many variables at play, things broke often, and I learned to quickly find work arounds.
+I learned about the complexities of Duckiebot networking, including how to ssh into Duckiebot with `ssh duckie@csc22902.local`, and most importantly how to run Docker
+commands on a Duckiebot `docker -H csc22902.local ...`. I also learned to be ready to debug what seemingly worked yesterday. With so many variables at play, things broke often, and I learned to quickly find work arounds.
 
 ### Challenges
 
