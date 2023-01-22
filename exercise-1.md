@@ -94,3 +94,32 @@ but also to no avail.
 
 If this wasn't an exercise focused on creating a docker image,
 it would be much simpler to use [duckietown/template-ros](https://github.com/duckietown/template-ros) repository and subscribe to the ROS `/csc22902/camera_node/image/compressed` topic instead of reverse engineering the camera driver and `dt-duckiebot-interface` container. While I couldn't quite get the `gst_pipeline` working, I was able to learn a lot about how the Duckietown Docker containers work, the complexities of the drivers that act as an interface between hardware and software. Regardless, I was able to successfully build and push my `colordetector` Docker image to [DockerHub](https://hub.docker.com/r/steventango/colordetector).
+
+#### **Duckietown Python Library**
+
+`pipdeptree` raises an exception when running `make docker test`,
+```bash
+Step 8/11 : RUN pipdeptree
+ ---> Running in 47b0acca7829
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/pipdeptree.py", line 17, in <module>
+    from pip._internal.utils.misc import get_installed_distributions
+ImportError: cannot import name 'get_installed_distributions' from 'pip._internal.utils.misc' (/usr/local/lib/python3.7/site-packages/pip/_internal/utils/misc.py)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/bin/pipdeptree", line 5, in <module>
+    from pipdeptree import main
+  File "/usr/local/lib/python3.7/site-packages/pipdeptree.py", line 20, in <module>
+    from pip import get_installed_distributions, FrozenRequirement
+ImportError: cannot import name 'get_installed_distributions' from 'pip' (/usr/local/lib/python3.7/site-packages/pip/__init__.py)
+The command '/bin/sh -c pipdeptree' returned a non-zero code: 1
+make: *** [Makefile:66: build] Error 1
+```
+
+I had to revert `pip` to `21.2.4` to in the Dockerfile to resolve this.
+
+```Dockerfile
+RUN python3 -m pip install pip==21.2.4
+```
