@@ -72,13 +72,13 @@ VLAN for Network Type.
 
 #### **mDNS**
 
-For unknown reasons, mDNS on the DuckieNet lab network stopped working for a few days.
+For unknown reasons, mDNS on the DuckieNet network stopped working for a few days.
 This made connecting to the Duckiebot's challenging,
 as `dts fleet discover` and a few other `dts` commands
 don't work without mDNS. The best workaround I found for this issue is to add
 a new entry to my `/etc/hosts` file. Adding `192.168.1.33 csc22902.local`,
 effectively allows requests to `csc22902.local` to map to IP address
-`192.168.1.33`, allowing me to work past the mDNS issues. To get the IP address, I used SSH to access the lab machine and ran `ping csc22902.local`. Alternatively, `nmap` might also work.
+`192.168.1.33`, allowing me to work past the mDNS issues. To get the IP address, I ran `ping csc22902.local` on the lab machine which had working mDNS. Alternatively, `nmap` might also work.
 
 #### **Color Detector**
 
