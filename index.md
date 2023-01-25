@@ -6,6 +6,7 @@ Mobile Robotics.
 ## Written Reports
 
 1. [Exercise 1 - Duckiebot Assembly and Basic Development](./exercise-1.md)
+2. [Exercise 2 - ROS Development and Kinematics](./exercise-2.md)
 
 ## Code Repository
 
