@@ -13,21 +13,23 @@
 
 `sudo nmap -sS -v -n -p 22 192.168.1.33/24 --host-timeout 1 --max-retries 1 --min-parallelism 256 --min-rtt-timeout 1 --max-rtt-timeout 1 --initial-rtt-timeout 1`
 
+## Challenges
 
-Use this
-```
-docker -H csc22902.local build -t duckietown/my-ros-program .
-```
-not
-```
-dts devel build -f -H csc22902.local
+### dts
+
+I found that the `dts devel build -f -H csc22902.local` command failed intermittently with the following error:
+```bash
+docker.errors.APIError: 500 Server Error for http://192.168.1.33:2375/v1.40/auth: Internal Server Error ("Get https://registry-1.docker.io/v2/: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)")
 ```
 
-Use this
+I found that this docker command modified from [RH2 Unit B-5.4-E17](https://docs.duckietown.org/daffy/duckietown-robotics-development/out/creating_docker_containers.html) is equivalent
+
+```bash
+docker -H csc22902.local build -t duckietown/my-ros-program:latest-arm64v8 .
 ```
-docker -H csc22902.local run duckietown/my-ros-program .
-```
-not
-```
-dts devel run -H csc22902.local
+
+Similarly for `dts devel run -H csc22902.local`, we can use
+
+```bash
+docker -H csc22902.local run duckietown/my-ros-programlatest-arm64v8
 ```
