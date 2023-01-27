@@ -13,6 +13,18 @@
 
 `sudo nmap -sS -v -n -p 22 192.168.1.33/24 --host-timeout 1 --max-retries 1 --min-parallelism 256 --min-rtt-timeout 1 --max-rtt-timeout 1 --initial-rtt-timeout 1`
 
+Write your code to store your robot's hostname in a variable
+
+```py
+hostname = os.environ.get('VEHICLE_NAME')
+```
+
+Using `rqt_image_view` to view the camera image in my customized topic /`csc22902/`
+![rqt_image_view](./images/rqt_image_view.png)
+
+Screenshot of code for Part One Question 2
+![my_image_node.py.png](./images/my_image_node.py.png)
+
 ## Challenges
 
 ### dts
@@ -31,5 +43,5 @@ docker -H csc22902.local build -t duckietown/my-ros-program:latest-arm64v8 .
 Similarly for `dts devel run -H csc22902.local`, we can use
 
 ```bash
-docker -H csc22902.local run duckietown/my-ros-programlatest-arm64v8
+docker -H csc22902.local run -it duckietown/my-ros-program:latest-arm64v8
 ```
