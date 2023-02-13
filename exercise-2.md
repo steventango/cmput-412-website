@@ -176,7 +176,7 @@ To get the initial world frame from the initial robot frame,
 we keep the angle \\(\theta\\) the same, and set \\(x_I = 0.32\\) and \\(y_I = 0.32\\).
 This is equivalent to this matrix multiplication:
 
-\\[\mathbf{\xi}_I = \begin{bmatrix}1 & 0 & 0.32 \\\\0 & 1 & 0.32 \\\\0 & 0 & 1\end{bmatrix}\mathbf{\xi}_R\\].
+\\[\mathbf{\xi}_I = \begin{bmatrix}1 & 0 & 0.32 \\\\0 & 1 & 0.32 \\\\0 & 0 & 1\end{bmatrix}\mathbf{\xi}_R\\]
 
 We used the following matrix multiplication to transform between the two:
 
