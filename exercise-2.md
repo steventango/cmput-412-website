@@ -74,6 +74,14 @@ TODO \()
 
 ## Part 1 - ROS basics
 
+### [ROS Concepts](http://wiki.ros.org/ROS/Concepts)
+
+* Node: named modular computation process.
+* Topic: named message bus that routes messages that nodes can publish and subscribe to.
+* Service: named pair of request message from a client node and reply message from the providing node.
+* Message: typed data structure used for internode communication.
+* Bag: message data format
+
 For this first section, we'll be referencing code mostly in the
 [heartbeat-ros](https://codeberg.org/akemi/duckietown/src/branch/main/lab2/heartbeat-ros)
 workspace
@@ -498,6 +506,16 @@ amount they overlap from the start to the end, so there's actually quite a bit
 of noise during the turn. On Tuesday Feb 6th's lecture, we also learned how
 turning is disastrously more noisy than going in the straight line, so the
 quiver-plot's disconnection from reality makes sense.
+
+### Sources
+
+* [ROS Concepts](http://wiki.ros.org/ROS/Concepts)
+* <http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28python%29>
+* <https://answers.ros.org/question/11834/when-should-i-use-topics-vs-services-vs-actionlib-actions-vs-dynamic_reconfigure/>
+* <http://wiki.ros.org/rospy/Overview/Publishers%20and%20Subscribers>
+* <https://wiki.ros.org/rospy/Overview/Initialization%20and%20Shutdown#Registering_shutdown_hooks>
+* <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.quiver.html>
+* <https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll>
 
 <!-- COMMENTED STUFF STARTS HERE, IGNORE THIS
 

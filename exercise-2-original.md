@@ -3,14 +3,6 @@
 
 ## Learnings
 
-### [ROS Concepts](http://wiki.ros.org/ROS/Concepts)
-
-* Node: named modular computation process.
-* Topic: named message bus that routes messages that nodes can publish and subscribe to.
-* Service: named pair of request message from a client node and reply message from the providing node.
-* Message: typed data structure used for internode communication.
-* Bag: message data format
-
 `sudo nmap -sS -v -n -p 22 192.168.1.33/24 --host-timeout 1 --max-retries 1 --min-parallelism 256 --min-rtt-timeout 1 --max-rtt-timeout 1 --initial-rtt-timeout 1`
 
 Write your code to store your robot's hostname in a variable
