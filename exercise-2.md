@@ -461,10 +461,13 @@ Our final video above is the same one from the start of this section. The final 
 
 ### Putting it all together
 
+For the video above, we recorded [this
+bag](https://codeberg.org/akemi/duckietown/src/branch/main/lab2/bag-decoder/kinematics.bag). The video below, shows us playing it back
+on a local rosmaster and
+see the messages being sent live with `rostopic echo`.
+
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/WjkHO1CmJFQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-For the video above, we recorded [this
-bag](https://codeberg.org/akemi/duckietown/src/branch/main/lab2/bag-decoder/kinematics.bag)
 and plotted it with matplotlib in [this
 ipython-notebook](https://codeberg.org/akemi/duckietown/src/branch/main/lab2/bag-decoder/decode.ipynb),
 with the resulting image here:
