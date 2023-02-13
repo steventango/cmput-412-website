@@ -245,7 +245,9 @@ pre-built duckietown topic which gives pose, we instead opted to make a small
 modification out our dead reckoning code from section 2 to record the video
 linked below.
 
-[Here's a link](https://www.youtube.com/watch?v=IpDTdR3xOlE) to our duckiebot
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/IpDTdR3xOlE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+The above video shows our duckiebot
 going forward then back. We were using a pretty high speed for this one, hence
 the little jump it does when starting to reverse. We also hypothesized that part
 of the problem here lies in how we immediately go in reverse gear, instead of
@@ -383,11 +385,19 @@ that out of this assignment.
 ### Movement
 
 Getting the movement right took by far the most effort in this lab. Before we
-continue, look at [how well it ended
-up](https://www.youtube.com/watch?v=NFU9NcNew_w)! Except, that was from the
-wrong starting position :sob:. We weren't able to get such a lucky run from the
-correct starting position, though here's [our best
-recording](https://www.youtube.com/watch?v=mHwQ-8XmVzc). Something seemed to
+continue, look at how well it ended up!
+
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/WjkHO1CmJFQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+Except, that was from the
+wrong starting position :sob:.
+
+We weren't able to get such a lucky run from the
+correct starting position, though here's our best recording:
+
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/WjkHO1CmJFQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+Something seemed to
 keep tripping it up on that specific starting tile, since it worked so much
 better from the middle.
 
@@ -441,15 +451,17 @@ parameters at runtime too, though this method was quicker and easier for this
 lab. We'll be looking to use the native ROS version in the upcoming labs, since
 the build time is unlikely to improve.
 
-Our final video [is here](https://www.youtube.com/watch?v=mHwQ-8XmVzc), the same
-one from the start of this section. The final distance was 64cm when measured by
-AR-ruler. About 62cm when measured by a prehistoric 90cm-stick:
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/mHwQ-8XmVzc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+Our final video above is the same one from the start of this section. The final distance was 64cm when measured by AR-ruler. About 62cm when measured by a prehistoric 90cm-stick:
 
 ![64cm measured distance in an AR-ruler screenshot of an iPhone](images/exercise-2/lab2_final_position.avif)
 
 ![64cm measured distance in an AR-ruler screenshot of an iPhone](images/exercise-2/lab2_final_dist_ar.avif)
 
 ### Putting it all together
+
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/WjkHO1CmJFQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 For the video above, we recorded [this
 bag](https://codeberg.org/akemi/duckietown/src/branch/main/lab2/bag-decoder/kinematics.bag)
