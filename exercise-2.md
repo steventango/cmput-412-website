@@ -160,24 +160,25 @@ you transform between them?** **How do you convert the location and theta at the
 initial robot frame to the world frame?**
 
 The robot frame is always centered on the robot, so it is given by
+
 $\mathbf{\xi}_R = \begin{bmatrix}
-    x_R \\
-    y_R \\
+    x_R \\\\
+    y_R \\\\
     \theta
 \end{bmatrix} = \begin{bmatrix}
-    0 \\
-    0 \\
+    0 \\\\
+    0 \\\\
     \frac{\pi}{2}
 \end{bmatrix}$
 
 The initial world frame is given by
 $\mathbf{\xi}_I = \begin{bmatrix}
-    x_I \\
-    y_I \\
+    x_I \\\\
+    y_I \\\\
     \theta
 \end{bmatrix} = \begin{bmatrix}
-    0.32 \\
-    0.32 \\
+    0.32 \\\\
+    0.32 \\\\
     \frac{\pi}{2}
 \end{bmatrix}$
 
@@ -186,8 +187,8 @@ angle $\theta$ the same, and $x_R = 0$ and $y_R = 0$. This is equivalent to this
 matrix multiplication:
 
 $\mathbf{\xi}_R = \begin{bmatrix}
-    0 & 0 & 0 \\
-    0 & 0 & 0 \\
+    0 & 0 & 0 \\\\
+    0 & 0 & 0 \\\\
     0 & 0 & 1
 \end{bmatrix}\mathbf{\xi}_I$
 
@@ -196,8 +197,8 @@ we keep the angle $\theta$ the same, and set $x_I = 0.32$ and $y_I = 0.32$.
 This is equivalent to this matrix multiplication:
 
 $\mathbf{\xi}_I = \begin{bmatrix}
-    1 & 0 & 0.32 \\
-    0 & 1 & 0.32 \\
+    1 & 0 & 0.32 \\\\
+    0 & 1 & 0.32 \\\\
     0 & 0 & 1
 \end{bmatrix}\mathbf{\xi}_R$.
 
@@ -206,8 +207,8 @@ We used the following matrix multiplication to transform between the two:
 $\mathbf{\dot{\xi}}_I = \mathbf{R}^{-1}\mathbf{\dot{\xi}}_R$
 with
 $\mathbf{R}^{-1}(\theta) = \begin{bmatrix}
-    \cos(\theta) & -\sin(\theta) & 0 \\
-    \sin(\theta) & \cos(\theta) & 0 \\
+    \cos(\theta) & -\sin(\theta) & 0 \\\\
+    \sin(\theta) & \cos(\theta) & 0 \\\\
     0 & 0 & 1
 \end{bmatrix}$
 
@@ -221,7 +222,7 @@ $0$ and $2\pi$.
 
 We note that the equation for getting the change in robot frame is given by
 
-$\mathbf{\dot{\xi}}_R = \begin{bmatrix} \frac{d_r + d_l}{2l} \\ 0 \\ \frac{d_r -
+$\mathbf{\dot{\xi}}_R = \begin{bmatrix} \frac{d_r + d_l}{2l} \\\\ 0 \\\\ \frac{d_r -
 d_l}{2l} \end{bmatrix}$
 
 where $d_r$ and $d_l$ are the integrated displacement traveled by the right and
