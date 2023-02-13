@@ -293,9 +293,11 @@ when we tried to make it turn in the closest direction, the slippage this
 back-forth adjustment introduced so much noise, the duckiebot's angle ended up
 being absurdly far off at high speeds.
 
-In general, slow speeds worked much better for turning. Just [look at
-this](https://www.youtube.com/watch?v=WniOrK1jwZs) supposed -90deg turn at max
-velocity on both wheels. When we tested in the simulator, we used a turning
+In general, slow speeds worked much better for turning. Just look at this supposed -90 degree turn at max velocity on both wheels.
+
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/WniOrK1jwZs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+When we tested in the simulator, we used a turning
 velocity of 0.3 and that worked perfectly. It was going to work nicely in
 practice too... until we actually tried it. Turns out, the duckiebot is so
 heavy, it cannot complete a 90deg turn at any velocity under 0.6. On our second
