@@ -2,7 +2,7 @@
 
 ## My Duckiebot
 
-![Duckiebot](images/duckiebot.jpg)
+![Duckiebot](images/exercise-1/duckiebot.jpg)
 
 ## Demos
 
@@ -14,8 +14,8 @@ Even after lots of wheel trim calibration, we see that the Duckiebot still does 
 
 ### Dashboard
 
-![Dashboard Speed - Linear](images/dashboard_linear.png)
-![Dashboard Speed - Angular](images/dashboard_angular.png)
+![Dashboard Speed - Linear](images/exercise-1/dashboard_linear.png)
+![Dashboard Speed - Angular](images/exercise-1/dashboard_angular.png)
 The dashboard can readily display the camera output and motor signals from a
 Duckiebot.
 

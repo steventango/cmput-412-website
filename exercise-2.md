@@ -129,7 +129,7 @@ instead of having to constantly modify source code.
 Here's a screenshot of the node in `rqt_graph`:
 
 <img
-    src="/images/duckietown/lab2/custom_publisher_and_subscriber_allinone.avif"
+    src="/images/exercise-2/custom_publisher_and_subscriber_allinone.avif"
     alt="Custom camera node in rqt_graph. It publishes two outgoing topics"
 />
 
@@ -144,14 +144,14 @@ for discovering this and posting it on the discord
 Here's a screenshot of our modified topic being published (this one isn't black
 and white):
 
-![Picture of screen with rqt_image_view streaming our topic](images/duckietown/lab2/custom_published_image.avif)
+![Picture of screen with rqt_image_view streaming our topic](images/exercise-2/custom_published_image.avif)
 
 You can see the [source code
 here](https://codeberg.org/akemi/duckietown/src/branch/main/lab2/heartbeat-ros/packages/camera_demo_node),
 though the assignment asks for a picture of the source code... so here's a
 picture of where the link leads:
 
-![Screenshot of 2 Chromium windows displaying source code](images/duckietown/lab2/lab2_camera_node_code_screenshot.avif)
+![Screenshot of 2 Chromium windows displaying source code](images/exercise-2/lab2_camera_node_code_screenshot.avif)
 
 ### Robot Kinematics
 
@@ -478,9 +478,9 @@ Our final video [is here](https://www.youtube.com/watch?v=mHwQ-8XmVzc), the same
 one from the start of this section. The final distance was 64cm when measured by
 AR-ruler. About 62cm when measured by a prehistoric 90cm-stick:
 
-![64cm measured distance in an AR-ruler screenshot of an iPhone](images/duckietown/lab2/lab2_final_position.avif)
+![64cm measured distance in an AR-ruler screenshot of an iPhone](images/exercise-2/lab2_final_position.avif)
 
-![64cm measured distance in an AR-ruler screenshot of an iPhone](images/duckietown/lab2/lab2_final_dist_ar.avif)
+![64cm measured distance in an AR-ruler screenshot of an iPhone](images/exercise-2/lab2_final_dist_ar.avif)
 
 ### Putting it all together
 
@@ -490,7 +490,7 @@ and plotted it with matplotlib in [this
 ipython-notebook](https://codeberg.org/akemi/duckietown/src/branch/main/lab2/bag-decoder/decode.ipynb),
 with the resulting image here:
 
-![A quiver plot (end-to-end arrows) of the robot traveling in a square](images/duckietown/lab2/quiver_plot_sparse.avif)
+![A quiver plot (end-to-end arrows) of the robot traveling in a square](images/exercise-2/quiver_plot_sparse.avif)
 
 This plot is showing what the duckiebot thinks it's doing, which looking at the
 video clearly doesn't align with what's actually taking place. A quiver-plot is
