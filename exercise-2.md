@@ -387,7 +387,7 @@ that out of this assignment.
 Getting the movement right took by far the most effort in this lab. Before we
 continue, look at how well it ended up!
 
-<iframe width="100%" height="315" src="https://www.youtube.com/embed/WjkHO1CmJFQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/NFU9NcNew_w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Except, that was from the
 wrong starting position :sob:.
