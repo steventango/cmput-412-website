@@ -395,7 +395,7 @@ wrong starting position :sob:.
 We weren't able to get such a lucky run from the
 correct starting position, though here's our best recording:
 
-<iframe width="100%" height="315" src="https://www.youtube.com/embed/WjkHO1CmJFQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/mHwQ-8XmVzc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Something seemed to
 keep tripping it up on that specific starting tile, since it worked so much
