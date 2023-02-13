@@ -70,7 +70,7 @@ TODO \()
 -->
 
 
-# Inverse Mathematics - Second lab
+# Exercise 2 - ROS Development and Kinematics
 
 ## Part 1 - ROS basics
 
