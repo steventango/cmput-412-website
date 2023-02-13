@@ -502,7 +502,10 @@ did about 1.5 circles in an ellipse. This was likely a mix of slippage, the
 wheel's wobble, and the angle of the wheel on the duckiebot, which was certainly
 not perfectly parallel with the sides. To test out how bad it is, we modified
 our program to make the duckies go in an endless circle and launched it on both
-our duckiebots. [Here's a video](https://www.youtube.com/shorts/Qf5KefGTbXg).
+our duckiebots.
+
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/Qf5KefGTbXg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 Even in that short clip, the two robots clearly had their circles change the
 amount they overlap from the start to the end, so there's actually quite a bit
 of noise during the turn. On Tuesday Feb 6th's lecture, we also learned how
