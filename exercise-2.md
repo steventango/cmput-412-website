@@ -164,77 +164,58 @@ The robot frame is always centered on the robot, so it is given by
 \\[ \mathbf{\xi}_R = \begin{bmatrix} x_R \\\\ y_R \\\\ \theta \end{bmatrix} = \begin{bmatrix} 0 \\\\ 0 \\\\ \frac{\pi}{2}\end{bmatrix} \\]
 
 The initial world frame is given by
-\\[ \mathbf{\xi}_I = \begin{bmatrix}
-    x_I \\\\
-    y_I \\\\
-    \theta
-\end{bmatrix} = \begin{bmatrix}
-    0.32 \\\\
-    0.32 \\\\
-    \frac{\pi}{2}
-\end{bmatrix}\\]
+\\[ \mathbf{\xi}_I = \begin{bmatrix}x_I \\\\y_I \\\\\theta\end{bmatrix} = \begin{bmatrix}0.32 \\\\0.32 \\\\\frac{\pi}{2}\end{bmatrix}\\]
 
 To transform the initial world frame to the robot frame is trivial, keep the
-angle $\theta$ the same, and $x_R = 0$ and $y_R = 0$. This is equivalent to this
+angle \\(\theta\\) the same, and \\(x_R = 0\\) and \\(y_R = 0\\). This is equivalent to this
 matrix multiplication:
 
-\\[\mathbf{\xi}_R = \begin{bmatrix}
-    0 & 0 & 0 \\\\
-    0 & 0 & 0 \\\\
-    0 & 0 & 1
-\end{bmatrix}\mathbf{\xi}_I\\]
+\\[\mathbf{\xi}_R = \begin{bmatrix}0 & 0 & 0 \\\\0 & 0 & 0 \\\\0 & 0 & 1\end{bmatrix}\mathbf{\xi}_I\\]
 
 To get the initial world frame from the initial robot frame,
-we keep the angle $\theta$ the same, and set $x_I = 0.32$ and $y_I = 0.32$.
+we keep the angle \\(\theta\\) the same, and set \\(x_I = 0.32\\) and \\(y_I = 0.32\\).
 This is equivalent to this matrix multiplication:
 
-\\[\mathbf{\xi}_I = \begin{bmatrix}
-    1 & 0 & 0.32 \\\\
-    0 & 1 & 0.32 \\\\
-    0 & 0 & 1
-\end{bmatrix}\mathbf{\xi}_R\\].
+\\[\mathbf{\xi}_I = \begin{bmatrix}1 & 0 & 0.32 \\\\0 & 1 & 0.32 \\\\0 & 0 & 1\end{bmatrix}\mathbf{\xi}_R\\].
 
 We used the following matrix multiplication to transform between the two:
 
 \\[\mathbf{\dot{\xi}}_I = \mathbf{R}^{-1}\mathbf{\dot{\xi}}_R\\]
 with
-\\[\mathbf{R}^{-1}(\theta) = \begin{bmatrix}
-    \cos(\theta) & -\sin(\theta) & 0 \\\\\\\\
-    \sin(\theta) & \cos(\theta) & 0 \\\\\\\\
-    0 & 0 & 1
-\end{bmatrix}\\]
+\\[\mathbf{R}^{-1}(\theta) = \begin{bmatrix}\cos(\theta) & -\sin(\theta) & 0 \\\\\\\\\sin(\theta) & \cos(\theta) & 0 \\\\\\\\0 & 0 & 1\end{bmatrix}\\]
 
 Then we can update the world frame by integrating the above changes in world
 frame
 
-$\mathbf{\xi}_I = \mathbf{\xi}_I + \mathbf{\dot{\xi}}_I$
+\\[\mathbf{\xi}_I = \mathbf{\xi}_I + \mathbf{\dot{\xi}}_I\\]
 
-We also must apply the modulo of $2\pi$ to the angle $\theta$ to keep it between
-$0$ and $2\pi$.
+We also must apply the modulo of \\(2\pi\\) to the angle \\(\theta\\) to keep it between
+\\(0\\) and \\(2\pi\\).
 
 We note that the equation for getting the change in robot frame is given by
 
 \\[\mathbf{\dot{\xi}}_R = \begin{bmatrix} \frac{d_r + d_l}{2l} \\\\ 0 \\\\ \frac{d_r -
 d_l}{2l} \end{bmatrix}\\]
 
-where $d_r$ and $d_l$ are the integrated displacement traveled by the right and
-left wheels and $l$ is the distance between the wheels and the center of the
+where \\(d_r\\) and \\(d_l\\) are the integrated displacement traveled by the right and
+left wheels and \\(l\\) is the distance between the wheels and the center of the
 rotation.
 
-To get the integrated displacements $d_r$ and $d_l$, we use the wheel encoder
+To get the integrated displacements \\(d_r\\) and \\(d_l\\), we use the wheel encoder
 ticks formula:
 
-\\[\Delta \text{ticks} = \text{ticks}_t - \text{ticks}_{t-1}\\]
+\\[\Delta \text{ticks} = \text{ticks}_t - \text{ticks}\_\{t-1\} \\]
+<!--   - \\] -->
 
 \\[d_r = 2\pi \cdot r \cdot \frac{\Delta \text{ticks}}{\text{resolution}}\\]
 
-where $r = 0.025$ is the radius of the Duckiebot wheel and $\text{resolution} =
-135$ is the number of ticks in one rotation of the wheel.
+where \\(r = 0.025\\) is the radius of the Duckiebot wheel and \\(\text{resolution} =
+135\\) is the number of ticks in one rotation of the wheel.
 
 **How did you estimate/track the angles your DuckieBot has traveled?**
 
-To update the angle $\theta$ that our DuckieBot has traveled, we used the
-equation
+To update the angle \\(\theta\\) that our DuckieBot has traveled, we used the
+matrix multiplication above, which breaks down to the following equations for angle:
 
 \\[\theta = \theta + \dot{\theta}\\]
 where
