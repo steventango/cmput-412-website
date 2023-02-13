@@ -71,7 +71,6 @@ TODO \()
 
 
 # Inverse Mathematics - Second lab
- + Link to intro image here
 
 ## Part 1 - ROS basics
 
@@ -145,19 +144,26 @@ for discovering this and posting it on the discord
 Here's a screenshot of our modified topic being published (this one isn't black
 and white):
 
-![Picture of screen with rqt_image_view streaming our topic](images/duckietown/lab2/custom_published_image.avif)
+<img
+    src="/images/duckietown/lab2/custom_published_image.avif"
+    alt="Picture of screen with rqt_image_view streaming our topic"
+/>
 
 You can see the [source code
 here](https://codeberg.org/akemi/duckietown/src/branch/main/lab2/heartbeat-ros/packages/camera_demo_node),
 though the assignment asks for a picture of the source code... so here's a
 picture of where the link leads:
 
-![Screenshot of 2 Chromium windows displaying source code](images/duckietown/lab2/lab2_camera_node_code_screenshot.avif)
+<img
+    src="/images/duckietown/lab2/lab2_camera_node_code_screenshot.avif"
+    alt="Screenshot of 2 Chromium windows displaying source code"
+/>
 
 ### Robot Kinematics
 
-**What is the relation between your initial robot frame and world frame? How do you transform between them?**
-**How do you convert the location and theta at the initial robot frame to the world frame?**
+**What is the relation between your initial robot frame and world frame? How do
+you transform between them?** **How do you convert the location and theta at the
+initial robot frame to the world frame?**
 
 The robot frame is always centered on the robot, so it is given by
 $\mathbf{\xi}_R = \begin{bmatrix}
@@ -181,9 +187,9 @@ $\mathbf{\xi}_I = \begin{bmatrix}
     \frac{\pi}{2}
 \end{bmatrix}$
 
-To transform the initial world frame to the robot frame is trivial,
-keep the angle $\theta$ the same, and $x_R = 0$ and $y_R = 0$. This is equivalent
-to this matrix multiplication:
+To transform the initial world frame to the robot frame is trivial, keep the
+angle $\theta$ the same, and $x_R = 0$ and $y_R = 0$. This is equivalent to this
+matrix multiplication:
 
 $\mathbf{\xi}_R = \begin{bmatrix}
     0 & 0 & 0 \\
@@ -211,7 +217,8 @@ $\mathbf{R}^{-1}(\theta) = \begin{bmatrix}
     0 & 0 & 1
 \end{bmatrix}$
 
-Then we can update the world frame by integrating the above changes in world frame
+Then we can update the world frame by integrating the above changes in world
+frame
 
 $\mathbf{\xi}_I = \mathbf{\xi}_I + \mathbf{\dot{\xi}}_I$
 
@@ -220,11 +227,8 @@ $0$ and $2\pi$.
 
 We note that the equation for getting the change in robot frame is given by
 
-$\mathbf{\dot{\xi}}_R = \begin{bmatrix}
-    \frac{d_r + d_l}{2l} \\
-    0 \\
-    \frac{d_r - d_l}{2l}
-\end{bmatrix}$
+$\mathbf{\dot{\xi}}_R = \begin{bmatrix} \frac{d_r + d_l}{2l} \\ 0 \\ \frac{d_r -
+d_l}{2l} \end{bmatrix}$
 
 where $d_r$ and $d_l$ are the integrated displacement traveled by the right and
 left wheels and $l$ is the distance between the wheels and the center of the
@@ -237,27 +241,27 @@ $\Delta \text{ticks} = \text{ticks}_t - \text{ticks}_{t-1}$
 
 $d_r = 2\pi \cdot r \cdot \frac{\Delta \text{ticks}}{\text{resolution}}$
 
-where $r = 0.025$ is the radius of the Duckiebot wheel and
-$\text{resolution} = 135$ is the number of ticks in one rotation of the wheel.
+where $r = 0.025$ is the radius of the Duckiebot wheel and $\text{resolution} =
+135$ is the number of ticks in one rotation of the wheel.
 
 **How did you estimate/track the angles your DuckieBot has traveled?**
 
 To update the angle $\theta$ that our DuckieBot has traveled, we used the
 equation
 
-$\theta = \theta + \dot{\theta}$
-where
-$\dot{\theta} = \frac{d_r - d_l}{2l}$
+$\theta = \theta + \dot{\theta}$ where $\dot{\theta} = \frac{d_r - d_l}{2l}$
 
-**Can you explain why there is a difference between actual and desired location?**
+**Can you explain why there is a difference between actual and desired
+location?**
 
-There are small errors that are mostly due to slippage and momentum.
-Since we do dead reckoning, as the DuckieBot moves more the small errors
-compound. We note that errors in the angle tend to drastically affect the bot's
-x, y position due to the trigonometric functions used in matrix. This causes
-the Duckiebot's desired location to drastically different from the actual location.
+There are small errors that are mostly due to slippage and momentum. Since we do
+dead reckoning, as the DuckieBot moves more the small errors compound. We note
+that errors in the angle tend to drastically affect the bot's x, y position due
+to the trigonometric functions used in matrix. This causes the Duckiebot's
+desired location to drastically different from the actual location.
 
-**Which topic(s) did you use to make the robot move? How did you figure out the topic that could make the motor move?**
+**Which topic(s) did you use to make the robot move? How did you figure out the
+topic that could make the motor move?**
 
 For our first wheel-moving demo we published into the `/$(arg
 veh)/wheels_driver_node/wheels_cmd` topic. We found this topic with a mix of
@@ -293,13 +297,6 @@ drift longer from momentum, it will also read more traveled distance when its
 wheels quickly slip. We were quite surprised about this, since we expected the
 higher the speed the higher the noise, though our 3 empirical runs simply don't
 support that conclusion
-
-    + Image with difference in measurements
-    - Explain the rotation task (link failed video, it's the only one we have)
-    - TODO: explain math about driving duckiebot in the circle
-    - Talk about the use of `rospy.on_shutdown()` hooks to cleanly exit
-    - Explain how rosbags work
-    + Link script and matplotlib quiver plot of pose
 
 ### Rotation task
 
@@ -369,11 +366,6 @@ taken on the first callback, then relative changes can be calculated properly
 The other package contains the LED node, which provides a service interface.
 This is called from the `odometry_driver_node`, which acts as our central
 "state" node
-
- 1. An odometry publisher node that reads in wheel ticks
- 2. An odometry driver that makes decisions from the published pose
- 3. An LED node working as a service which the driver node communicates to
- + Link to new waddle workspace
 
 ### LED service
 
@@ -492,13 +484,16 @@ Our final video [is here](https://www.youtube.com/watch?v=mHwQ-8XmVzc), the same
 one from the start of this section. The final distance was 64cm when measured by
 AR-ruler. About 62cm when measured by a prehistoric 90cm-stick:
 
-![64cm measured distance in an AR-ruler screenshot of an iPhone](images/duckietown/lab2/lab2_final_position.avif)
+<div><img
+    src="/images/duckietown/lab2/lab2_final_position.avif"
+    alt="64cm measured distance in an AR-ruler screenshot of an iPhone"
+    style="width: 100%; height: 100%"
+/></div>
 
-![64cm measured distance in an AR-ruler screenshot of an iPhone](images/duckietown/lab2/lab2_final_dist_ar.avif)
-
- - Created a PID controller with good dead reckoning which worked perfectly in the simulator
- - Continued to scrap pieces of the PID controller, like the duckietown exit notice
- - Explain why it's off...
+<div><img
+    src="/images/duckietown/lab2/lab2_final_dist_ar.avif"
+    alt="64cm measured distance in an AR-ruler screenshot of an iPhone"
+/></div>
 
 ### Putting it all together
 
@@ -508,7 +503,10 @@ and plotted it with matplotlib in [this
 ipython-notebook](https://codeberg.org/akemi/duckietown/src/branch/main/lab2/bag-decoder/decode.ipynb),
 with the resulting image here:
 
-![A quiver plot (end-to-end arrows) of the robot traveling in a square](images/duckietown/lab2/quiver_plot_sparse.avif)
+<img
+    src="/images/duckietown/lab2/quiver_plot_sparse.avif"
+    alt="A quiver plot (end-to-end arrows) of the robot traveling in a square"
+/>
 
 This plot is showing what the duckiebot thinks it's doing, which looking at the
 video clearly doesn't align with what's actually taking place. A quiver-plot is
@@ -534,8 +532,6 @@ amount they overlap from the start to the end, so there's actually quite a bit
 of noise during the turn. On Tuesday Feb 6th's lecture, we also learned how
 turning is disastrously more noisy than going in the straight line, so the
 quiver-plot's disconnection from reality makes sense.
-
- - Mention shutdown hooks and rosbag recorders
 
 <!-- COMMENTED STUFF STARTS HERE, IGNORE THIS
 
