@@ -5,7 +5,9 @@
 A screenshot of our [Unit A-4 Advanced Augmented Reality Exercise](https://docs.duckietown.org/daffy/duckietown-classical-robotics/out/cra_apriltag_augmented_reality_exercise.html)
 results.
 
-## Deliverable 1: April Tag Detection and Labeling
+## Part One - Computer Vision
+
+### Deliverable 1: April Tag Detection and Labeling
 
 The following video depicts our apriltag detector image topic viewed with `rqt_image_view` demonstrating our apriltag node detecting several apriltags and labeling each with its bounding box and ID number.
 
@@ -34,7 +36,7 @@ April tag detection is computationally expensive, so limiting the rate of
 detections can reduce Duckiebot CPU usage. Furthermore, if the image does not
 change much, it is can unnecessary to recompute April tag detections.
 
-## Challenges
+### Challenges
 
 ### `.dockerignore`
 
@@ -55,7 +57,7 @@ to convert between OpenCV images and CompressedImage messages.
 The [image_geometry](https://docs.ros.org/en/api/image_geometry/html/python/)
 package seems useful for undistorting raw images.
 
-## Docker 23.0.1 breaks dts devel run
+### Docker 23.0.1 breaks dts devel run
 
 After upgrading to Docker 23.0.1, `dts devel run` would error with message:
 `docker: Error response from daemon: No command specified.`.
@@ -66,6 +68,71 @@ I had to [downgrade](https://docs.docker.com/engine/install/ubuntu/) to Docker 2
 VERSION_STRING=5:20.10.23~3-0~ubuntu-focal
 steven@steven-Ubuntu20:~/Github/duckietown/lab3/farfetched$ sudo apt-get install docker-ce=$VERSION_STRING docker-ce-cli=$VERSION_STRING containerd.io docker-buildx-plugin docker-compose-plugin
 ```
+
+## Part Two - Lane Following
+
+### Deliverable 2: Lane Following English Driver Style
+
+### **What is the error for your PID controller?**
+
+<!-- TODO -->
+
+### **If your proportional controller did not work well alone, what could have caused this?**
+
+<!-- TODO -->
+
+### **Does the D term help your controller logic? Why or why not?**
+
+<!-- TODO -->
+
+### **(Optional) Why or why not was the I term useful for your robot?**
+
+<!-- TODO -->
+
+## Part Three - Localization using Sensor Fusion
+
+### Deliverable 3: Record a video on your computer showing RViz: displaying your camera feed, odometry frame and static apriltag frames as it completes one circle. You can drive using manual control or lane following.
+
+## **Where did your odometry seem to drift the most? Why would that be?**
+
+<!-- TODO -->
+
+## **Did adding the landmarks make it easier to understand where and when the odometry drifted?**
+
+<!-- TODO -->
+
+## Deliverable 4: Attach the generated transform tree graph, what is the root/parent frame?
+
+
+You may notice that the wheel frames rotate when you rotate the wheels, but the frames never
+move from the origin? Even if you launch your odometry node the duckiebot’s frames do not
+move. Why is that?
+1. Using a static transform attach your odometry child frame to the parent frame from the
+URDF.
+● What should the translation and rotation be from the odometry child to robot parent
+frame? In what situation would you have to use something different?
+● After creating this link generate a new transform tree graph. What is the new root/parent
+frame for your environment?
+● Can a frame have two parents? What is your reasoning for this?
+● Can an environment have more than one parent/root frame?
+Deliverable 5: Attach your newly generated transform tree graph, what is the new
+root/parent frame?
+
+Deliverable 6: Record a short video of your robot moving around the world frame with all
+the robot frames / URDF attached to your moving odometry frame. Show the apriltag
+detections topic in your camera feed and visualize the apriltag detections frames in rviz.
+Questions
+● How far off are your detections from the static ground truth.
+● What are two factors that could cause this error?
+
+Deliverable 7: Show a short video of your robot moving around the entire world (see
+image below) using lane following and have your sensor fusion node teleport the robot if
+an apriltag is found and use odometry if no apriltag is detected. Try to finish as close to
+your starting point as possible.
+Questions
+● Is this a perfect system?
+● What are the causes for some of the errors?
+● What other approaches could you use to improve localization?
 
 ## Sources
 
