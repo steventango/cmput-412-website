@@ -1,5 +1,10 @@
 # Exercise 3 - Computer Vision for Robotics
 
+![AR Ducks](images/exercise-3/ar-ducks.png)
+
+A screenshot of our [Unit A-4 Advanced Augmented Reality Exercise](https://docs.duckietown.org/daffy/duckietown-classical-robotics/out/cra_apriltag_augmented_reality_exercise.html)
+results.
+
 ## Deliverable 1: April Tag Detection and Labeling
 
 The following video depicts our apriltag detector image topic viewed with `rqt_image_view` demonstrating our apriltag node detecting several apriltags and labeling each with its bounding box and ID number.
