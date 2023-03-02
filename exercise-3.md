@@ -144,3 +144,5 @@ Questions
 * <https://github.com/duckietown/dt-core/blob/6d8e99a5849737f86cab72b04fd2b449528226be/packages/complete_image_pipeline/include/image_processing/ground_projection_geometry.py#L161>
 * <https://bitesofcode.wordpress.com/2018/09/16/augmented-reality-with-python-and-opencv-part-2/>
 * <https://einsteiniumstudios.com/beaglebone-opencv-line-following-robot.html>
+* <http://wiki.ros.org/tf2/Tutorials/Writing%20a%20tf2%20static%20broadcaster%20%28Python%29>
+* <https://nikolasent.github.io/opencv/2017/05/07/Bird's-Eye-View-Transformation.html>
