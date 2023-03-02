@@ -71,23 +71,66 @@ steven@steven-Ubuntu20:~/Github/duckietown/lab3/farfetched$ sudo apt-get install
 
 ## Part Two - Lane Following
 
+Here are the videos!
+
+ - [American driver](https://youtu.be/K4qqWjGXsec). 0.3 velocity, P-controller,
+   drives on the right
+ - [English driver](https://youtu.be/lVeuNHGCy6w). 0.3 velocity, P-controller,
+   drives on the left
+ - [Drunk driver](https://youtu.be/Nt8Qxyd7FjQ). 0.6 velocity, P-controller,
+   attempts to drive on the left
+
 ### Deliverable 2: Lane Following English Driver Style
 
 ### **What is the error for your PID controller?**
 
-<!-- TODO -->
+We use a multi-stage Opencv pipeline to process the image
+
+ 1. Crop out the top 1/3 and bottom 1/5
+ 2. Blur the entire image by 5 pixels in both directions
+ 3. Apply HSV thresholds to mask out everything except the yellow lane. We have
+    two separate thresholds, one for each room. Both thresholds mask out ducks,
+    though the csc229 ones doesn't correctly mask out the carpet in csc235
+ 4. Detect contours in the new black-white image
+ 5. Sort contours by area. We initially considered using the top-k contours and
+    averaging them, though we found outlier contours can do a lot more damage
+    this way, so we just used the single largest one instead
+ 6. Find the center of the largest contour
+ 7. Draw a line from the center of the largest contour to the right (left with
+    English-driving) with a length of exactly the distance of the center point
+    from the top of the image
+ 8. **Set the error** as the difference between the line's right-most point and
+    the center of the image. This means the error is measured in pixels
 
 ### **If your proportional controller did not work well alone, what could have caused this?**
 
-<!-- TODO -->
+Initially, our controller failed to work since we published the images at 3Hz.
+The logic is that opencv is a "heavy" process, so publishing at a high frequency
+would just lead to images being discarded from the publisher queue. The system
+suddenly started working, when we change this to 30Hz... at 0.3 velocity.
+
+However, at 0.6 velocity, the P-term-only controller really struggled (see
+[third video](https://youtu.be/Nt8Qxyd7FjQ)). Our P-term-only controller making
+the English driver look more like the drunk driver. It didn't work well since a
+P term fails to consider the momentum built up by the system. At 0.3 velocity,
+there isn't enough momentum to effect our controller noticeably, though at 0.6
+this momentum leads to noticeable oscillation and hard turning overshoots.
 
 ### **Does the D term help your controller logic? Why or why not?**
 
-<!-- TODO -->
+The D term was pointless at 0.3. Actually it was detrimental, since the logic
+of the program got harder to debug. We did try to implement one when using 0.6
+velocity, however with 2 minute build times, we weren't able to sufficiently
+tune it. An untuned D-term was far worse than a tuned P-controller, mostly since
+it kept fighting against itself on the turns, which made it end up off the
+track.
 
 ### **(Optional) Why or why not was the I term useful for your robot?**
 
-<!-- TODO -->
+Given how problematic the D-term was, we never even considered adding an I-term
+during this assignment. We doubt it'd be much help either, since there isn't
+any steady-state error to correct against with an integral term when we're just
+driving on a horizontal surface.
 
 ## Part Three - Localization using Sensor Fusion
 
@@ -115,12 +158,15 @@ frame? In what situation would you have to use something different?
 frame for your environment?
 ● Can a frame have two parents? What is your reasoning for this?
 ● Can an environment have more than one parent/root frame?
-Deliverable 5: Attach your newly generated transform tree graph, what is the new
-root/parent frame?
 
-Deliverable 6: Record a short video of your robot moving around the world frame with all
-the robot frames / URDF attached to your moving odometry frame. Show the apriltag
-detections topic in your camera feed and visualize the apriltag detections frames in rviz.
+## Deliverable 5: Attach your newly generated transform tree graph, what is the new root/parent frame?
+
+## Deliverable 6:
+**Record a short video of your robot moving around the world frame with all the
+robot frames / URDF attached to your moving odometry frame. Show the apriltag
+detections topic in your camera feed and visualize the apriltag detections
+frames in rviz.**
+
 Questions
 ● How far off are your detections from the static ground truth.
 ● What are two factors that could cause this error?
