@@ -146,6 +146,12 @@ driving on a horizontal surface.
 
 ## Deliverable 4: Attach the generated transform tree graph, what is the root/parent frame?
 
+The root/parent is `csc22927/footprint`.
+
+Move the wheels and make note of which joint is moving, what type of joint is this?
+
+`csc22927_left_wheel_axis_to_left_wheel` and `csc22927_left_wheel_axis_to_right_wheel`. The type of joint is
+`continuous`. [urdf](https://github.com/duckietown/dt-duckiebot-interface/blob/daffy/packages/duckiebot_interface/urdf/duckiebot.urdf.xacro#L107)
 
 You may notice that the wheel frames rotate when you rotate the wheels, but the frames never
 move from the origin? Even if you launch your odometry node the duckiebot’s frames do not
@@ -192,3 +198,5 @@ Questions
 * <https://einsteiniumstudios.com/beaglebone-opencv-line-following-robot.html>
 * <http://wiki.ros.org/tf2/Tutorials/Writing%20a%20tf2%20static%20broadcaster%20%28Python%29>
 * <https://nikolasent.github.io/opencv/2017/05/07/Bird's-Eye-View-Transformation.html>
+* <http://wiki.ros.org/urdf/XML/joint>
+* <https://github.com/duckietown/dt-duckiebot-interface/blob/daffy/packages/duckiebot_interface/urdf/duckiebot.urdf.xacro#L107>
