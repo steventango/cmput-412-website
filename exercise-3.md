@@ -9,9 +9,18 @@ results.
 
 ### Deliverable 1: April Tag Detection and Labeling
 
-The following video depicts our apriltag detector image topic viewed with `rqt_image_view` demonstrating our apriltag node detecting several apriltags and labeling each with its bounding box and ID number.
+The following video depicts our apriltag detector image topic viewed with
+`rqt_image_view` demonstrating our apriltag node detecting several apriltags and
+labeling each with its bounding box and ID number.
 
-<iframe width="100%" height="315" src="https://www.youtube.com/embed/gAck5-vHF6U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe
+      width="100%"
+      height="315"
+      src="https://www.youtube.com/embed/gAck5-vHF6U" title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+</iframe>
 
 ### **What does the april tag library return to you for determining its position?**
 
@@ -62,11 +71,12 @@ package seems useful for undistorting raw images.
 After upgrading to Docker 23.0.1, `dts devel run` would error with message:
 `docker: Error response from daemon: No command specified.`.
 
-I had to [downgrade](https://docs.docker.com/engine/install/ubuntu/) to Docker 20.10.23 to get it to work again.
+I had to [downgrade](https://docs.docker.com/engine/install/ubuntu/) to Docker
+20.10.23 to get it to work again.
 
 ```bash
-VERSION_STRING=5:20.10.23~3-0~ubuntu-focal
-steven@steven-Ubuntu20:~/Github/duckietown/lab3/farfetched$ sudo apt-get install docker-ce=$VERSION_STRING docker-ce-cli=$VERSION_STRING containerd.io docker-buildx-plugin docker-compose-plugin
+export VERSION_STRING=5:20.10.23~3-0~ubuntu-focal
+sudo apt-get install docker-ce=$VERSION_STRING docker-ce-cli=$VERSION_STRING containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
 ## Part Two - Lane Following
@@ -81,6 +91,17 @@ Here are the videos!
    attempts to drive on the left
 
 ### Deliverable 2: Lane Following English Driver Style
+
+This video has our bot complete a full map with the English-driver style
+
+<iframe
+      width="100%"
+      height="315"
+      src="https://youtu.be/lVeuNHGCy6w"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+</iframe>
 
 ### **What is the error for your PID controller?**
 
@@ -110,7 +131,7 @@ would just lead to images being discarded from the publisher queue. The system
 suddenly started working, when we change this to 30Hz... at 0.3 velocity.
 
 However, at 0.6 velocity, the P-term-only controller really struggled (see
-[third video](https://youtu.be/Nt8Qxyd7FjQ)). Our P-term-only controller making
+[third video](https://youtu.be/Nt8Qxyd7FjQ)). Our P-term-only controller made
 the English driver look more like the drunk driver. It didn't work well since a
 P term fails to consider the momentum built up by the system. At 0.3 velocity,
 there isn't enough momentum to effect our controller noticeably, though at 0.6
@@ -144,14 +165,14 @@ circle](https://www.youtube.com/watch?v=-LOutfERpKI)
 Most of the drifting came up when we attempted to take a turn. Our recording
 starts off by turning, since it initially faced to the right, so our odometry is
 drifting quite hard right away. We learned in class that turns introduce much
-mroe noise than forward driving, so this adds up.
+more noise than forward driving, so this adds up.
 
 ## **Did adding the landmarks make it easier to understand where and when the odometry drifted?**
 
 Quite a bit. Especially at areas that are dense with landmarks, like the
 intersections, we're able to really quickly tell how far the duckiebot has
-dirifted. In our video this particularly shows itself aroudn the middle, when
-the bot is an entire intersection ahead of where rviz seems to show it.
+drifted. In our video this particularly shows itself around the middle, when
+the bot is an entire intersection ahead of where `rviz` seems to show it.
 
 ## Deliverable 4: Attach the generated transform tree graph, what is the root/parent frame?
 
@@ -161,23 +182,31 @@ root of this tree is `csc22927/footprint`.
 **Move the wheels and make note of which joint is moving, what type of joint is this?**
 
 `csc22927_left_wheel_axis_to_left_wheel` and
-`csc22927_left_wheel_axis_to_right_wheel`. The type of joint is `continuous`.
-[urdf](https://github.com/duckietown/dt-duckiebot-interface/blob/daffy/packages/duckiebot_interface/urdf/duckiebot.urdf.xacro#L107). The actual wheel `csc22927/left_wheel` is the transformation that
-visually spins in rviz
+`csc22927_left_wheel_axis_to_right_wheel`. The type of joint is `continuous`, as
+seen in this
+[urdf](https://github.com/duckietown/dt-duckiebot-interface/blob/daffy/packages/duckiebot_interface/urdf/duckiebot.urdf.xacro#L107).
+The actual wheel `csc22927/left_wheel` is the transformation that visually spins
+in `rviz`
 
 ### **You may notice that the wheel frames rotate when you rotate the wheels, but the frames never move from the origin? Even if you launch your odometry node the duckiebot’s frames do not move. Why is that?**
 
 That's since our root is the footprint's frame of reference. Not matter how much
-we move, the robot's components stay together, so their relative positions never
-change. When using the footprint as root, this means their absolute position in
-the footprint's frame is also fixed.
+we move, the robot's components stay together, so their relative positions to
+one another never change. Since the footprint travels with the rest of the bot,
+none of the other components appear to move from its frame of reference.
+
+The wheels do rotate, since that relative change is still captured with respect
+to the footprint's frame. That's since the footprint is always fixed at the
+bottom of the bot, while the wheel isn't fixed relative to the footprint's frame
+on two axes.
 
 <!-- From here on, questions are for 3.5 -->
 
 ### **What should the translation and rotation be from the odometry child to robot parent frame? In what situation would you have to use something different?**
 
-Zero translation, zero rotation. When the parent frame and odometry frame are
-not identical we would have to use a more complicated transformaton.
+Zero translation, zero rotation (identity transformation matrix). In other
+words, our robot's frame is identical to the odometry child frame. If they
+weren't the same, we'd have to actually apply a non-trivial transformation.
 
 ### **After creating this link generate a new transform tree graph. What is the new root/parent frame for your environment?**
 
@@ -185,11 +214,25 @@ The world frame is now the root of the environment.
 
 ### **Can a frame have two parents? What is your reasoning for this?**
 
-No, it's called a transform __tree__ graph for a reason.
+No, it's called a transform __tree__ graph for a reason. To clarify, it is
+possible to transform between any two nodes in the same tree graph, though
+having two parent frames is not possible.
+
+Consider a situation where a frame really is defined by two parents. Say it's a
+4cm x-translation relative to parent A's frame and a 2cm x-translation relative
+to parent B's frame. This immediately implies parent A's frame is -2cm in parent
+B's frame. However, since there isn't any direct dependency between them, it'd
+be possible to violate this assumption by changing the child's position relative
+to the two parent frames in an inconsistent way. To guarantee this corralation,
+we'd have to express either parent A or B in the other's frame, which brings us
+back to 1 parent per node.
 
 ### **Can an environment have more than one parent/root frame?**
 
-Yes, since obviously
+Yes. Unlike the two parent assumption, having two or more separate trees in the
+same environment doesn't create any implicit assumptions, since the trees are
+completely disjoint. However, by doing so you remove the ability to transform
+between any frames across the two trees.
 
 ## Deliverable 5: Attach your newly generated transform tree graph, what is the new root/parent frame?
 
@@ -199,7 +242,7 @@ transform from the world frame to the `csc22927_left_wheel_axis_to_left_wheel`
 
 ## Deliverable 6: Record a short video of your robot moving around the world frame with all the robot frames / URDF attached to your moving odometry frame. Show the apriltag detections topic in your camera feed and visualize the apriltag detections frames in rviz.
 
-distortion.
+
 ### **How far off are your detections from the static ground truth?**
 
 ### **What are two factors that could cause this error?**
