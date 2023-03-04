@@ -160,6 +160,10 @@ move. Why is that?
 URDF.
 ● What should the translation and rotation be from the odometry child to robot parent
 frame? In what situation would you have to use something different?
+
+Zero translation, zero rotation. When the parent frame and odometry frame are not identical we would have to use a more
+complicated transformaton.
+
 ● After creating this link generate a new transform tree graph. What is the new root/parent
 frame for your environment?
 ● Can a frame have two parents? What is your reasoning for this?
@@ -176,6 +180,9 @@ frames in rviz.**
 Questions
 ● How far off are your detections from the static ground truth.
 ● What are two factors that could cause this error?
+
+Our detections are quite far off from the ground truth. Two factors that could cause this error are inaccurate odometry from wheel encoders and camera transform errors arising from camera
+distortion.
 
 Deliverable 7: Show a short video of your robot moving around the entire world (see
 image below) using lane following and have your sensor fusion node teleport the robot if
@@ -200,3 +207,4 @@ Questions
 * <https://nikolasent.github.io/opencv/2017/05/07/Bird's-Eye-View-Transformation.html>
 * <http://wiki.ros.org/urdf/XML/joint>
 * <https://github.com/duckietown/dt-duckiebot-interface/blob/daffy/packages/duckiebot_interface/urdf/duckiebot.urdf.xacro#L107>
+* <https://wiki.ros.org/tf2/Tutorials/Writing%20a%20tf2%20listener%20(Python)>
