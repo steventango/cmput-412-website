@@ -136,62 +136,85 @@ driving on a horizontal surface.
 
 ### Deliverable 3: Record a video on your computer showing RViz: displaying your camera feed, odometry frame and static apriltag frames as it completes one circle. You can drive using manual control or lane following.
 
+[Here's a video of our odometry node driving in a
+circle](https://www.youtube.com/watch?v=-LOutfERpKI)
+
 ## **Where did your odometry seem to drift the most? Why would that be?**
 
-<!-- TODO -->
+Most of the drifting came up when we attempted to take a turn. Our recording
+starts off by turning, since it initially faced to the right, so our odometry is
+drifting quite hard right away. We learned in class that turns introduce much
+mroe noise than forward driving, so this adds up.
 
 ## **Did adding the landmarks make it easier to understand where and when the odometry drifted?**
 
-<!-- TODO -->
+Quite a bit. Especially at areas that are dense with landmarks, like the
+intersections, we're able to really quickly tell how far the duckiebot has
+dirifted. In our video this particularly shows itself aroudn the middle, when
+the bot is an entire intersection ahead of where rviz seems to show it.
 
 ## Deliverable 4: Attach the generated transform tree graph, what is the root/parent frame?
 
-The root/parent is `csc22927/footprint`.
+[Here's the tree we got](./images/exercise-3/footprint_as_root_tf.pdf). The
+root of this tree is `csc22927/footprint`.
 
-Move the wheels and make note of which joint is moving, what type of joint is this?
+**Move the wheels and make note of which joint is moving, what type of joint is this?**
 
-`csc22927_left_wheel_axis_to_left_wheel` and `csc22927_left_wheel_axis_to_right_wheel`. The type of joint is
-`continuous`. [urdf](https://github.com/duckietown/dt-duckiebot-interface/blob/daffy/packages/duckiebot_interface/urdf/duckiebot.urdf.xacro#L107)
+`csc22927_left_wheel_axis_to_left_wheel` and
+`csc22927_left_wheel_axis_to_right_wheel`. The type of joint is `continuous`.
+[urdf](https://github.com/duckietown/dt-duckiebot-interface/blob/daffy/packages/duckiebot_interface/urdf/duckiebot.urdf.xacro#L107). The actual wheel `csc22927/left_wheel` is the transformation that
+visually spins in rviz
 
-You may notice that the wheel frames rotate when you rotate the wheels, but the frames never
-move from the origin? Even if you launch your odometry node the duckiebot’s frames do not
-move. Why is that?
-1. Using a static transform attach your odometry child frame to the parent frame from the
-URDF.
-● What should the translation and rotation be from the odometry child to robot parent
-frame? In what situation would you have to use something different?
+### **You may notice that the wheel frames rotate when you rotate the wheels, but the frames never move from the origin? Even if you launch your odometry node the duckiebot’s frames do not move. Why is that?**
 
-Zero translation, zero rotation. When the parent frame and odometry frame are not identical we would have to use a more
-complicated transformaton.
+That's since our root is the footprint's frame of reference. Not matter how much
+we move, the robot's components stay together, so their relative positions never
+change. When using the footprint as root, this means their absolute position in
+the footprint's frame is also fixed.
 
-● After creating this link generate a new transform tree graph. What is the new root/parent
-frame for your environment?
-● Can a frame have two parents? What is your reasoning for this?
-● Can an environment have more than one parent/root frame?
+<!-- From here on, questions are for 3.5 -->
+
+### **What should the translation and rotation be from the odometry child to robot parent frame? In what situation would you have to use something different?**
+
+Zero translation, zero rotation. When the parent frame and odometry frame are
+not identical we would have to use a more complicated transformaton.
+
+### **After creating this link generate a new transform tree graph. What is the new root/parent frame for your environment?**
+
+The world frame is now the root of the environment.
+
+### **Can a frame have two parents? What is your reasoning for this?**
+
+No, it's called a transform __tree__ graph for a reason.
+
+### **Can an environment have more than one parent/root frame?**
+
+Yes, since obviously
 
 ## Deliverable 5: Attach your newly generated transform tree graph, what is the new root/parent frame?
 
-## Deliverable 6:
-**Record a short video of your robot moving around the world frame with all the
-robot frames / URDF attached to your moving odometry frame. Show the apriltag
-detections topic in your camera feed and visualize the apriltag detections
-frames in rviz.**
+[Here's our new transform tree
+graph](./images/exercise-3/footprint_as_child_tf.pdf), which makes it possible to
+transform from the world frame to the `csc22927_left_wheel_axis_to_left_wheel`
 
-Questions
-● How far off are your detections from the static ground truth.
-● What are two factors that could cause this error?
+## Deliverable 6: Record a short video of your robot moving around the world frame with all the robot frames / URDF attached to your moving odometry frame. Show the apriltag detections topic in your camera feed and visualize the apriltag detections frames in rviz.
 
-Our detections are quite far off from the ground truth. Two factors that could cause this error are inaccurate odometry from wheel encoders and camera transform errors arising from camera
 distortion.
+### **How far off are your detections from the static ground truth?**
 
-Deliverable 7: Show a short video of your robot moving around the entire world (see
-image below) using lane following and have your sensor fusion node teleport the robot if
-an apriltag is found and use odometry if no apriltag is detected. Try to finish as close to
-your starting point as possible.
-Questions
-● Is this a perfect system?
-● What are the causes for some of the errors?
-● What other approaches could you use to improve localization?
+### **What are two factors that could cause this error?**
+
+Our detections are quite far off from the ground truth. Two factors that could
+cause this error are inaccurate odometry from wheel encoders and camera
+transform errors arising from camera
+
+# Deliverable 7: Show a short video of your robot moving around the entire world (see image below) using lane following and have your sensor fusion node teleport the robot if an apriltag is found and use odometry if no apriltag is detected. Try to finish as close to your starting point as possible.
+
+### **Is this a perfect system?**
+
+### **What are the causes for some of the errors?**
+
+### **What other approaches could you use to improve localization?**
 
 ## Sources
 
@@ -208,3 +231,4 @@ Questions
 * <http://wiki.ros.org/urdf/XML/joint>
 * <https://github.com/duckietown/dt-duckiebot-interface/blob/daffy/packages/duckiebot_interface/urdf/duckiebot.urdf.xacro#L107>
 * <https://wiki.ros.org/tf2/Tutorials/Writing%20a%20tf2%20listener%20(Python)>
+* <https://github.com/AprilRobotics/apriltag/wiki/AprilTag-User-Guide>
