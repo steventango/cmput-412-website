@@ -1,13 +1,9 @@
-# CMPUT 412 Website
+---
+list_title: Written Reports
+---
 
 This website hosts the written lab exercise reports by Steven Tang for CMPUT 412 Experimental
 Mobile Robotics.
-
-## Written Reports
-
-1. [Exercise 1 - Duckiebot Assembly and Basic Development](./exercise-1.md)
-2. [Exercise 2 - ROS Development and Kinematics](./exercise-2.md)
-2. [Exercise 3 - Computer Vision for Robotics](./exercise-3.md)
 
 ## Code Repository
 
