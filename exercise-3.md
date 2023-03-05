@@ -1,6 +1,6 @@
 # Exercise 3 - Computer Vision for Robotics
 
-![AR Ducks](images/exercise-3/ar-ducks.png)
+![AR Ducks](images/exercise-3/ar-ducks.avif)
 
 A screenshot of our [Unit A-4 Advanced Augmented Reality Exercise](https://docs.duckietown.org/daffy/duckietown-classical-robotics/out/cra_apriltag_augmented_reality_exercise.html)
 results.
@@ -81,15 +81,6 @@ sudo apt-get install docker-ce=$VERSION_STRING docker-ce-cli=$VERSION_STRING con
 
 ## Part Two - Lane Following
 
-Here are the videos!
-
- - [American driver](https://youtu.be/K4qqWjGXsec). 0.3 velocity, P-controller,
-   drives on the right
- - [English driver](https://youtu.be/lVeuNHGCy6w). 0.3 velocity, P-controller,
-   drives on the left
- - [Drunk driver](https://youtu.be/Nt8Qxyd7FjQ). 0.6 velocity, P-controller,
-   attempts to drive on the left
-
 ### Deliverable 2: Lane Following English Driver Style
 
 This video has our bot complete a full map with the English-driver style
@@ -97,11 +88,19 @@ This video has our bot complete a full map with the English-driver style
 <iframe
       width="100%"
       height="315"
-      src="https://youtu.be/lVeuNHGCy6w"
+      src="https://www.youtube.com/embed/lVeuNHGCy6w"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
 </iframe>
+
+The English-driver was implemented with a P-controller and drives on the left.
+
+Here are some videos for other driving styles we implemented:
+
+- [American driver](https://www.youtube.com/watch?v=K4qqWjGXsec). 0.3 velocity, P-controller, drives on the right
+- [Drunk driver](https://www.youtube.com/watch?v=Nt8Qxyd7FjQ). 0.6 velocity,
+P-controller, attempts to drive on the left
 
 ### **What is the error for your PID controller?**
 
