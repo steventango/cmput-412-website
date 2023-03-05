@@ -245,11 +245,51 @@ transform from the world frame to the `csc22927_left_wheel_axis_to_left_wheel`
 
 ### **How far off are your detections from the static ground truth?**
 
+At first it was surprisingly not bad. Up until the third (bottom left) turn, it
+was within 60cm of where it really was. However, on that third turn the odometry
+failed to record the turn as hard as it actually was. This made the estimates
+extremely far off from that point forward.
+
 ### **What are two factors that could cause this error?**
 
 Our detections are quite far off from the ground truth. Two factors that could
 cause this error are inaccurate odometry from wheel encoders and camera
 transform errors arising from camera
+
+### Challenges
+
+One challenge we faced was actually trying to get the recording of `rviz`. If we
+start `rviz` before our transforms are being broadcast, it just doesn't see them
+and there doesn't seem to be any way to refresh `rviz`. If we start it too late,
+the screen recording starts with the bot having moved for several seconds
+already.
+
+Our solution to this was pure genius:
+
+<img
+    src="./images/exercise-3/bottle_bots.avif"
+    alt="Big waterbottle on top of duckiebot"
+  />
+
+By holding down the bot at the start, the odometry node doesn't move at all!
+This gave us the time we needed to startup `rviz`, then we just took the bottle
+off. The videos we present here had that initial ~30s of just sitting there
+cropped out.
+
+Another big challenge was the latency introduced by the deadreckoning and
+apriltag nodes. When we did part 2, we did it using only the lane-related nodes,
+nothing else was running. However, when we enabled our 30Hz apriltag node and
+10Hz deadreckoning node, our lane following code gained about 3s of latency. 3s
+is fatal on a turn, since the lane will go out of frame, so lane following
+effectively stopped working.
+
+We fixed this by lowering the apriltag rate to 1Hz, which is why the video
+stream is so much more delayed than the transforms in `rviz`, and lowering the
+deadreckoning node to 4Hz. Then it restored its ability to lane follow. We also
+turned off the front LEDs to not mess up the hues, instead indicating the whole
+apriltag-detection-color bit using only the back two LEDs
+
+<!-- TODO: Add video of only back LEDs changing -->
 
 # Deliverable 7: Show a short video of your robot moving around the entire world (see image below) using lane following and have your sensor fusion node teleport the robot if an apriltag is found and use odometry if no apriltag is detected. Try to finish as close to your starting point as possible.
 
