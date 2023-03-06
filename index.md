@@ -2,11 +2,16 @@
 list_title: Written Reports
 ---
 
-This website hosts the written lab exercise reports by Steven Tang for CMPUT 412 Experimental
-Mobile Robotics.
+This webbed-site hosts written lab exercise reports by Steven Tang for
+[CMPUT 412 Experimental
+Mobile Robotics](https://apps.ualberta.ca/catalogue/archive/course/cmput/412/1820).
+In our labs, we work with Duckiebots, a low-cost mobile robot from
+[Duckietown](https://www.duckietown.org/) to implement various mobile robotics
+concepts to perform specific tasks.
 
 ## Code Repository
 
+The corresponding code for each lab is available at:
 [steventango/cmput-412-labs](https://github.com/steventango/cmput-412-labs/)
 
 ## About
