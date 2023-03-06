@@ -23,4 +23,4 @@ Alberta interested in AI, Robotics, and Ducks!
 
 ### **Farfetch'd Robotics**
 
-[![Farfetch'd](https://img.pokemondb.net/sprites/black-white/anim/normal/farfetchd.gif)](https://pokemondb.net/pokedex/farfetchd)
+[![Farfetch'd](/images/farfetchd.gif)](https://pokemondb.net/pokedex/farfetchd)
