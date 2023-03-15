@@ -1,0 +1,2 @@
+CAMERAvsTOF.avif filter=lfs diff=lfs merge=lfs -text
+412_cmput-20.avif filter=lfs diff=lfs merge=lfs -text
