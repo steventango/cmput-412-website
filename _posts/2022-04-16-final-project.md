@@ -5,7 +5,7 @@ redirect_from:
 - /final-project/
 ---
 
-<div>
+<div style="align-items: center; display: flex;">
       <img src="/cmput-412-website/images/final-project/nine_ducks_on_two_dividers.avif" alt="Nine ducks on two dividers" style="width: 49%;">
       <div style="display: inline-block; width: 48%;">
           <img src="/cmput-412-website/images/final-project/three_ducks_on_a_windowsill.avif" alt="Three ducks on a windowsill">
