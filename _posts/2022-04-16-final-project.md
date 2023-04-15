@@ -5,8 +5,11 @@ redirect_from:
 - /final-project/
 ---
 
-![Nine ducks on two dividers](/cmput-412-website/images/final-project/nine_ducks_on_two_dividers.avif) ![Three ducks on a windowsill](/cmput-412-website/images/final-project/three_ducks_on_a_windowsill.avif)
-![Six ducks on two windowsills](/cmput-412-website/images/final-project/six_ducks_on_two_windowsills.avif)
+<p>
+      <img src="/cmput-412-website/images/final-project/nine_ducks_on_two_dividers.avif" alt="Nine ducks on two dividers" style="width: 49%;">
+      <img src="/cmput-412-website/images/final-project/three_ducks_on_a_windowsill.avif" alt="Three ducks on a windowsill" width="width: 49%;%" style="width: 49%;">
+      <img src="/cmput-412-website/images/final-project/six_ducks_on_two_windowsills.avif" alt="Six ducks on two windowsills" style="width: 49%;">
+</p>
 
 ## Round 1
 
