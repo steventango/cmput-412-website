@@ -5,12 +5,14 @@ redirect_from:
 - /final-project/
 ---
 
-<p>
+<div>
       <img src="/cmput-412-website/images/final-project/nine_ducks_on_two_dividers.avif" alt="Nine ducks on two dividers" style="width: 49%;">
-      <img src="/cmput-412-website/images/final-project/three_ducks_on_a_windowsill.avif" alt="Three ducks on a windowsill" width="width: 49%;%" style="width: 49%;">
-      <img src="/cmput-412-website/images/final-project/six_ducks_on_two_windowsills.avif" alt="Six ducks on two windowsills" style="width: 49%;">
-</p>
-
+      <div style="display: inline-block; width: 48%;">
+          <img src="/cmput-412-website/images/final-project/three_ducks_on_a_windowsill.avif" alt="Three ducks on a windowsill">
+          <img src="/cmput-412-website/images/final-project/six_ducks_on_two_windowsills.avif" alt="Six ducks on two windowsills">
+          <img src="/cmput-412-website/images/final-project/bam.avif" alt="Bam!">
+      </div>
+</div>
 ## Round 1
 
 <iframe
@@ -46,8 +48,6 @@ redirect_from:
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
 </iframe>
-
-![Bam!](/cmput-412-website/images/final-project/bam.avif)
 
 ## Sources
 
