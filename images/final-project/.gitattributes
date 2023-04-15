@@ -1,0 +1,5 @@
+*.avif filter=lfs diff=lfs merge=lfs -text
+*.pdf filter=lfs diff=lfs merge=lfs -text
+IMG_9473.avif filter=lfs diff=lfs merge=lfs -text
+IMG_9474.avif filter=lfs diff=lfs merge=lfs -text
+IMG_9475.avif filter=lfs diff=lfs merge=lfs -text
