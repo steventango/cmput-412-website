@@ -5,8 +5,8 @@ redirect_from:
 - /final-project/
 ---
 
-![Nine ducks on two dividers](/cmput-412-website/images/final-project/nine_ducks_on_two_dividers.avif) ![Three ducks on a windowsill](/cmput-412-website/images/final-project/three_ducks_on_a_windowsill.png)
-![Six ducks on two windowsills](/cmput-412-website/images/final-project/six_ducks_on_two_windowsills.png)
+![Nine ducks on two dividers](/cmput-412-website/images/final-project/nine_ducks_on_two_dividers.avif) ![Three ducks on a windowsill](/cmput-412-website/images/final-project/three_ducks_on_a_windowsill.avif)
+![Six ducks on two windowsills](/cmput-412-website/images/final-project/six_ducks_on_two_windowsills.avif)
 
 ## Round 1
 
@@ -43,6 +43,8 @@ redirect_from:
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
 </iframe>
+
+![Bam!](/cmput-412-website/images/final-project/bam.avif)
 
 ## Sources
 
