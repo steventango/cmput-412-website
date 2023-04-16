@@ -67,7 +67,7 @@ was untested prior to the demo.
       allowfullscreen>
 </iframe>
 
-## Stage 1 - Loops and lane following
+## Stage 1: Apriltag Detection and Lane Following
 
 ### Implementation
 
@@ -112,7 +112,7 @@ was completely different. To make matters worse, tuning on a duckietbot with
 charged again. This tuning issue resulted in our hard-coded turns sometimes
 going into the wrong lane, before lane following was re-enabled to correct them.
 
-## Stage 2
+## Stage 2: Obstacle Avoidance
 
 ### Implementation
 
@@ -159,7 +159,7 @@ current lane and just driving us back to stage 1. The more we hard-coded this
 section, the more reliable our going-around got, so in the end we ended up with
 a complete hard-code that performed consistently.
 
-## Stage 3
+## Stage 3: The Parking Lot
 
 ### Implementation
 
