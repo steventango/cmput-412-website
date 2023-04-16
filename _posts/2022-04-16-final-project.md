@@ -161,6 +161,26 @@ its current lane and just driving us back to stage 1. The more we hard-coded
 this section, the more reliable our going-around got, so in the end we ended up
 with a complete hard-code that performed consistently.
 
+## Stage 2.5: Handoff
+
+Since our group was crushed for time, we did our parts largely separately. So
+separately in fact, we were working on different workspaces. Since our code
+worked in our own workspace, we though up a pretty simple solution to merge the
+two: a service.
+
+Both the parking node and stage 1-2 node start up immediately, though the
+parking node doesn't do anything, simply checking once a second if its ready to
+start. When the stage 1-2 node reaches the end of stage 2, it makes a service
+call over to the parking node, initiating the takeover. The stage 1-2 node also
+unsubscribes from all topics to reduce any unnecessary load on the duckiebot.
+The shutdown for both is later signaled by the parking node, once it finishes
+parking.
+
+We initially thought we'd be able to simply shut down the stage 1-2 node at this
+point, though something about duckietown made that really not work. In fact it
+resulted in `csc22902` not being able to boot, from which it never recovered, so
+we steered really clear of that afterwards...
+
 ## Stage 3: The Parking Lot
 
 ### Implementation
