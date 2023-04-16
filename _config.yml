@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: CMPUT 412 Website
+title: CMPUT 412 Website | Farfetch'd Robotics
 email:
 description: >- # this means to ignore newlines until "baseurl:"
   This website hosts the written lab exercise reports by Steven Tang for
