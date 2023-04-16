@@ -203,7 +203,7 @@ the right turning, which meant we needed to use a very asymmetric force between
 the two directions. We found right turns that used an omega 3 times higher than
 the left seemed to truly balance things out.
 
-Unlike stage 1 though, Steven pulled off a miracle and guessed the correct
+Luckily, Steven pulled off a miracle and guessed the correct
 tuning parameters seconds before our first demo. It struggled to work well 2
 minutes before our demo, but the parameters guessed worked perfectly.
 
