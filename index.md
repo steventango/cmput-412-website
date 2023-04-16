@@ -7,7 +7,9 @@ This webbed-site hosts written lab exercise reports by Steven Tang for
 Mobile Robotics](https://apps.ualberta.ca/catalogue/archive/course/cmput/412/1820).
 In our labs, we work with Duckiebots, a low-cost mobile robot from
 [Duckietown](https://www.duckietown.org/) to implement various mobile robotics
-concepts to perform specific tasks.
+concepts to perform specific tasks. Exercises 2 through 5 and the final project
+were completed with Akemi Izuko, who has a corresponding website at
+[noway.moe/duckietown](https://noway.moe/duckietown).
 
 ## Code Repository
 
