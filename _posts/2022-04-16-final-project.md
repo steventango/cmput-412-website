@@ -179,16 +179,17 @@ few degrees of field of view, which is problematic when we need to figure out
 our pose in the parking lot. With some clever thinking, Steven made the bot
 systematically wiggle left and right, until it detected the apriltag opposite of
 the entrance with the TOF sensor! This would give a good distance estimate
-relative to that apriltag. After getting sufficiently close to it, the bot would
-turn towards the parking stall opposite to our desired one. Next it again did a
-wiggle to find the apriltag in the opposite stall, aligning itself such that the
-TOF sensor reads the minimum distance. This allowed us to tell the apriltag
-apart from the wooden-backboard. Once aligned, we just just reverse into the
-parking stall, until the TOF sensor read a distance over 1.15 m (the TOF sensor
-goes out of range after approximately 1.20 m). We then reversed a bit more to
-make sure we were fully in the stall. This strategy was fairly reliable as long
-as the parameters were tuned correctly and as a bonus was completely invariant
-to lighting conditions, so in theory, we could park even with the lights off.
+relative to that apriltag. After driving to a specified distance to it, the bot
+would turn towards the parking stall opposite to our desired one. Next it again
+did a wiggle to find the apriltag in the opposite stall, aligning itself such
+that the TOF sensor reads the minimum distance. This allowed us to tell the
+apriltag apart from the wooden-backboard. Once aligned, we just just reverse
+into the parking stall, until the TOF sensor read a distance over 1.15 m (the
+TOF sensor goes out of range after approximately 1.20 m). We then reversed a bit
+more to make sure we were fully in the stall. This strategy was fairly robust
+and reliable as long as the parameters were tuned correctly. As a bonus, it is
+completely invariant to lighting conditions, so in theory, we could park well
+even with the lights off.
 
 ### Challenges
 
