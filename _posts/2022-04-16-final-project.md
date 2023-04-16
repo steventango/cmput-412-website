@@ -205,5 +205,14 @@ struggled to work well 2 minutes before our demo, and the blind-guessed numbers
 he chose at put in worked perfectly!
 
 ## Sources
-
+Richard_Hartley_Andrew_Zisserman-Multiple_View_Geometry_in_Computer_Vision-EN.pdf)
+ - [Starting Template](https://github.com/XZPshaw/CMPUT412503_exercise4)
+ - [Lane Follow
+   Package](https://eclass.srv.ualberta.ca/mod/resource/view.php?id=6952069)
+ - [ros
+   cv_bridge](http://wiki.ros.org/cv_bridge/Tutorials/ConvertingBetweenROSImagesAndOpenCVImagesPython)
+ - [rospy tf library](http://wiki.ros.org/tf)
+ - [rospy shutdown hooks](https://wiki.ros.org/rospy/Overview/Initialization%20and%20Shutdown#Registering_shutdown_hooks)
+ - [duckietown/dt-duckiebot-interface/blob/daffy/packages/tof_driver/src/tof_node.py](https://github.com/duckietown/dt-duckiebot-interface/blob/daffy/packages/tof_driver/src/tof_node.py)
 - [Find Middle of Line Using Moments](https://stackoverflow.com/questions/64396183/opencv-find-a-middle-line-of-a-contour-python)
+- [Multiple View Geometry in Computer Vision, Second Edition](http://www.r-5.org/files/books/computers/algo-list/image-processing/vision/)
