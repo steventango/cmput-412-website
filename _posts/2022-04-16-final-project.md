@@ -134,8 +134,8 @@ pretty well.
 
 ### Challenges
 
-The biggest challenge was Akemi-kun not feeling like reading the rubric. Notably
-he missed the important bit about having to stop at all crossings, and not just
+The biggest challenge was Akemi not feeling like reading the rubric. Notably he
+missed the important bit about having to stop at all crossings, and not just
 charging through if there aren't any duckies in the way... Oops
 
 We also initially tried to use English driving to get around the broken
