@@ -163,7 +163,7 @@ with a complete hard-code that performed consistently.
 
 ## Stage 2.5: Handoff
 
-Since our group was crushed for time, we did our parts largely separately. So
+Since our group was crunched for time, we did our parts largely separately. So
 separately in fact, we were working on different workspaces. Since our code
 worked in our own workspace, we though up a pretty simple solution to merge the
 two: a service.
