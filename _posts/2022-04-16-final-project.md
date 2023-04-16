@@ -16,7 +16,10 @@ redirect_from:
 
 ## Round 1
 
-This was our best round, where we actually managed to park help-free:
+This was our best round, where we actually managed to park help-free, but had
+some issues with lane following as our understanding of the "stay within the
+correct lane" requirement assumed we could touch the yellow line, but turns out
+we can't.
 
 <iframe
       width="100%"
@@ -30,6 +33,12 @@ This was our best round, where we actually managed to park help-free:
 
 ## Round 2
 
+We did better on not touching the yellow line, but as we hastily adjusted the
+tuning, the bot would lose the line and then go off the road. We also had some
+issues with the Duckiebot's motors not turning as fast (likely as the bot's
+battery percentage had gone down a bit), so we had issues with parking the bot
+effectively.
+
 <iframe
       width="100%"
       height="315"
@@ -41,6 +50,12 @@ This was our best round, where we actually managed to park help-free:
 </iframe>
 
 ## Round 3
+
+We achieved similar results to round 2. In interesting issue is that we did not
+park as well in parking stall 2 and 3, in machine learning terms, we should have
+overfitted harder to the testing distribution. We only had the time to tune the
+parking parameters for stall 1 and 4, so the parking behaviour on stalls 2 and 3
+was untested prior to the demo.
 
 <iframe
       width="100%"
@@ -148,38 +163,46 @@ a complete hard-code that performed consistently.
 
 ### Implementation
 
-Steven initially decided to take the dark magic he learned in Martin's infamous
-cmput 428, to sensor-fuse the TOF, apriltag detector, vanishing-point line
-masking, and odometry to get perfect parking every time. Unfortunately, not only
-is this quite a complex task, all the sensors on the duckiebots are so noisy,
-this method broke down catastrophically. He kept removing sensors until he ended
-up with __just__ the TOF.
+Steven initially decided to take the computer vision "dark magic" he learned in
+Martin's infamous CMPUT 428, to fuse measurements the time of flight (TOF)
+sensor, apriltag detector, camera, and odometry to get perfect parking every
+time. We used the camera to both calculate our pose relative to the april tags
+and by computing the vanishing-point of the yellow parking lines to attempt to
+center ourselves in the lane. Unfortunately, not only is this quite complex
+task, the camera sensors and apriltag detections were not reliable enough. Our
+final solution ended up with __just__ the TOF.
 
-Now all the TOF gives is a direct-forward distance, which is problematic when we
-need to figure out our pose in the parking lot. With some clever thinking,
-Steven made the bot wiggle left and right, until it detected the apriltag
-opposite of the entrance with the TOF sensor! This would give a good pose
-estimate relative to that april tag. After getting sufficiently close to it,
-which is easy with a pretty accurate TOF measuring the distance, the bot would
-turn to whichever the stall we want wasn't on. Next it again did a wiggle to
-find the apriltag in the opposite stall, using the difference in measurements
-taken at all points, to tell the apriltag apart from the wooden-backboard. With
-alignment in place, he could just up into the stall, until the TOF sensor read a
-distance over 1.25m. Interestingly the TOF goes out of range at about 1.3m, so
-to account for a bit of noise, we considered out-of-range to be == 1.3m.
+Now all the TOF gives is a fairly accurate direct-forward distance, which is
+problematic when we need to figure out our pose in the parking lot. With some
+clever thinking, Steven made the bot systematically wiggle left and right, until
+it detected the apriltag opposite of the entrance with the TOF sensor! This
+would give a good distance estimate relative to that apriltag. After getting
+sufficiently close to it, the bot would turn towards the parking stall opposite
+to our desired one. Next it again did a wiggle to find the apriltag in the
+opposite stall, aligning itself such that the TOF sensor reads the minimum
+distance. This allowed us to tell the apriltag apart from the wooden-backboard.
+Once aligned, we just just reverse into the parking stall, until the TOF sensor
+read a distance over 1.15 m (the TOF sensor goes out of range after
+approximately 1.20 m). We then blindly reversed a bit more to make sure we were
+fully in the stall.
 
 ### Challenges
 
-A major challenge was the same tuning described in stage 1's challenge section,
-except it was even more sensitive. Paritcularly on `csc22920`, the left-turning
-was MUCH stronger than the right turning, which meant we needed to use a very
-asymmetric force between the two directions. We found right turns that used an
-omega 3x higher than the left seemed to truly balance things out.
+A major challenge was that there was not a lot of time to tune the parking
+parameters. We had only the time to tune for parking stalls 1 and 4, and we were
+tested on parking stall 1 which we tuned for and parking stalls 2 and 3 which
+were completely untested. If we had more time, we would have tuned for all
+stalls so that we could have a more reliable parking solution.
+
+Particularly on `csc22920`, the left-turning was MUCH stronger than
+the right turning, which meant we needed to use a very asymmetric force between
+the two directions. We found right turns that used an omega 3 times higher than
+the left seemed to truly balance things out.
 
 Unlike stage 1 though, Steven pulled off a miracle and blindly guessed the
 correct tuning parameters without testing seconds before our first demo. It
-actually didn't work 2 minutes before our demo, and the blind-guessed numbers he
-chose at put in worked perfectly!
+struggled to work well 2 minutes before our demo, and the blind-guessed numbers
+he chose at put in worked perfectly!
 
 ## Sources
 
