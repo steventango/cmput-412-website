@@ -51,9 +51,9 @@ effectively.
 
 ## Round 3
 
-We achieved similar results to round 2. In interesting issue is that we did not
-park as well in parking stall 2 and 3, in machine learning terms, we should have
-overfitted harder to the testing distribution. We only had the time to tune the
+We achieved similar results to round 2. An interesting issue is that we did not
+park as well in parking stall 2 and 3. In machine learning terms, we should have
+trained harder on the testing distribution. We only had the time to tune the
 parking parameters for stall 1 and 4, so the parking behaviour on stalls 2 and 3
 was untested prior to the demo.
 
