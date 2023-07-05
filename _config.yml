@@ -36,6 +36,8 @@ plugins:
 
 markdown: kramdown
 
+google_analytics: G-8R2DMK4K55
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
