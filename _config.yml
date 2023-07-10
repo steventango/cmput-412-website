@@ -29,10 +29,11 @@ twitter_username:
 github_username:  steventango
 
 # Build settings
-theme: minima
+remote_theme: jekyll/minima
 plugins:
   - jekyll-feed
   - jekyll-redirect-from
+  - jekyll-remote-theme
 
 markdown: kramdown
 
